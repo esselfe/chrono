@@ -1,5 +1,5 @@
 
-AC_INIT([chrono],[0.2.41],[bugs@esselfe.ca])
+AC_INIT([chrono],[0.2.42],[bugs@esselfe.ca])
 AC_PREREQ([2.59])
 AM_INIT_AUTOMAKE([1.9 foreign])
 AC_CONFIG_HEADERS(config.h)
