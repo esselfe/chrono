@@ -127,13 +127,15 @@ void Test(void) {
 	timersub(&tvx, &tvy, &tvd);
 	printf("  tvx:%0ld.%06ld tvy:%0ld.%06ld tvd:%0ld.%06ld\n",
 		tvx.tv_sec, tvx.tv_usec, tvy.tv_sec, tvy.tv_usec, tvd.tv_sec, tvd.tv_usec);
-	tvx.tv_sec = 0;
+	// So I've been told that timersub() doesn't do negatives, so remove those
+	/* tvx.tv_sec = 0;
 	tvx.tv_usec = 0;
 	tvy.tv_sec = 1;
 	tvy.tv_usec = 0;
 	timersub(&tvx, &tvy, &tvd);
 	printf("  tvx:%0ld.%06ld tvy:%0ld.%06ld tvd:%0ld.%06ld\n",
 		tvx.tv_sec, tvx.tv_usec, tvy.tv_sec, tvy.tv_usec, tvd.tv_sec, tvd.tv_usec);
+	*/
 	tvx.tv_sec = 0;
 	tvx.tv_usec = 1;
 	tvy.tv_sec = 0;
@@ -155,7 +157,9 @@ void Test(void) {
 	timersub(&tvx, &tvy, &tvd);
 	printf("  tvx:%0ld.%06ld tvy:%0ld.%06ld tvd:%0ld.%06ld\n",
 		tvx.tv_sec, tvx.tv_usec, tvy.tv_sec, tvy.tv_usec, tvd.tv_sec, tvd.tv_usec);
-	tvx.tv_sec = 0;
+	
+	// So I've been told that timersub() doesn't do negatives, so remove those
+	/*tvx.tv_sec = 0;
 	tvx.tv_usec = 0;
 	tvy.tv_sec = 0;
 	tvy.tv_usec = 1;
@@ -197,6 +201,7 @@ void Test(void) {
 	timersub(&tvx, &tvy, &tvd);
 	printf("  tvx:%0ld.%06ld tvy:%0ld.%06ld tvd:%0ld.%06ld\n",
 		tvx.tv_sec, tvx.tv_usec, tvy.tv_sec, tvy.tv_usec, tvd.tv_sec, tvd.tv_usec);
+	*/
 
 	printf("timeradd():\n");
 	tvx.tv_sec = 0;
