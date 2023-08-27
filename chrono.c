@@ -19,7 +19,7 @@ years, repeateable countdown, pause and reset function
 const char *chrono_version_string = VERSION;
 
 #ifdef HAVE_NCURSES
-#include <ncursesw/ncurses.h>
+#include <ncurses.h>
 #endif
 
 #ifdef HAVE_X11

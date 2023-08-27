@@ -4,7 +4,7 @@
 #include <sys/time.h>
 #include "chrono.h"
 
-#include <ncursesw/ncurses.h>
+#include <ncurses.h>
 #include <pthread.h>
 
 void ncursesInit(void) {

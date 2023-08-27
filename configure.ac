@@ -1,5 +1,5 @@
 
-AC_INIT([chrono],[0.2.43],[bugs@esselfe.ca])
+AC_INIT([chrono],[0.2.44],[bugs@esselfe.ca])
 AC_PREREQ([2.59])
 AM_INIT_AUTOMAKE([1.9 foreign])
 AC_CONFIG_HEADERS(config.h)
@@ -24,8 +24,9 @@ AC_ARG_ENABLE(ncurses,
 AC_MSG_CHECKING([whether to use ncurses])
 if test x"$enable_ncurses" = xyes; then
 	AC_MSG_RESULT(yes)
+	CFLAGS=`pkg-config --cflags ncursesw`
 	LIBS="$LIBS -lncurses"
-	AC_CHECK_HEADERS(ncursesw/ncurses.h,,enable_ncurses=no)
+	AC_CHECK_HEADERS(ncurses.h,,enable_ncurses=no)
 	AC_CHECK_FUNCS([getch initscr endwin printw refresh])
 	AC_DEFINE(HAVE_NCURSES, 1, [Define to 1 if you have ncurses installed])
 else
