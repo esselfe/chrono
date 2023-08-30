@@ -14,3 +14,5 @@ if HAVE_X11
 chrono_SOURCES += xlib.c
 endif
 
+man1_MANS = chrono.1
+
