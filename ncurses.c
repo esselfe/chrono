@@ -63,23 +63,24 @@ void *ncursesKeysThreadFunc(void *ptr) {
 }
 
 void ncursesTimeStringUpdate(void) {
-	printw("             \r");
+	clear();
+
 	if (years)
-			printw("%dy", years);
+			printw(" %dy", years);
 	if (months)
-			printw("%dm", months);
+			printw(" %dm", months);
 	if (days)
-			printw("%dd", days);
+			printw(" %dd", days);
 
 	if (seconds_only)
-		printw("%02d:%02d:%02d							",
+		printw(" %02ld:%02ld:%02ld							\r",
 			tm0->tm_hour, tm0->tm_min, tm0->tm_sec);
 	else {
 		if (countdown)
-			printw("%02d:%02d:%02d.%03lu					  ",
+			printw(" %02ld:%02ld:%02ld.%03lu					  \r",
 				tm0->tm_hour, tm0->tm_min, tm0->tm_sec, tv_countdown.tv_usec/1000);
 		else
-			printw("%02d:%02d:%02d.%03lu					  ",
+			printw(" %02ld:%02ld:%02ld.%03lu					  \r",
 				tm0->tm_hour, tm0->tm_min, tm0->tm_sec, tv_current.tv_usec/1000);
 	}
 	refresh();
