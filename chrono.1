@@ -1,0 +1,81 @@
+.\" Manpage for chrono.
+.\" Contact bugs@esselfe.ca to correct errors or typos.
+.TH man 1 "30 August 2023" "0.2.43" "chrono man page"
+.SH NAME
+chrono \- Measure elapsed time 
+.SH SYNOPSIS
+chrono [BbCcDdHhrSsTtVXxWY]
+.SH DESCRIPTION
+chrono is a terminal ncurses-based and/or X11-based windowed chronometer with
+millisecond precision, seconds, minutes, hours, days, months & years, 
+repeatable countdown, pause and reset function.
+.SH OPTIONS
+.TP
+-h, --help
+Show this help message and exit
+.TP
+-b, --borderless
+Create X11 window without decorations or borders
+.TP
+-B, --beep
+Play a sound at the end of a countdown
+.TP
+-C, --command COMMAND
+Execute COMMAND when countdown ends
+.TP
+-c, --countdown FORMAT
+Countdown using one of these formats: 15, 2:30 or 1:15:05
+.TP
+-D, --debug
+Show detailed debug informations
+.TP
+-d, --display NAME
+Use specified X11 display name (ie ":0.0" or ":1.0")
+.TP
+-r, --repeat
+Restart countdown once reaching 0
+.TP
+-S, --sticky
+Show window on all desktops
+.TP
+-s, --seconds
+Display seconds instead of milliseconds
+.TP
+-T, --title TEXT
+Put TEXT as window title
+.TP
+-t, --test
+Run correctness tests and exit
+.TP
+-x, --X11
+Use XOrg X11 Xlib as GUI (Only if ncurses support is enabled)
+.TP
+-X, --position-x XNUM
+Set the horizontal window position
+.TP
+-Y, --position-y YNUM
+Set the vertical window position
+.TP
+-W, --width WNUM
+Set window width in pixels
+.TP
+-H, --height HNUM
+Set window height in pixels
+.TP
+-V, --version
+Show the program version and exit
+.TP
+Once chrono has started, press 'q' to quit, 'r' to reset and 'p' or <space> to pause.
+chrono also responds to the SIGUSR1 and SIGUSR2 signals to pause and reset respectively.
+.SH EXAMPLES
+.TP
+chrono -c 1:15:30
+Start a countdown of 1 hour, 15 minutes and 30 seconds
+.TP
+chrono -x -b -r -c 1:0:0:0 -C "date >> /tmp/chrono-timestamp.log"
+Start a borderless X11 window and log current date after repeated countdown of 1 day
+.SH BUGS
+The elapsed time can gain or lose around 1 second over a day period.
+The elapsed time may gain or lose 1 hour on daylight saving time changes.
+.SH AUTHOR
+Stephane Fontaine (bugs@esselfe.ca)
