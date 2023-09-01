@@ -23,27 +23,27 @@ The default is to enable both if preset. Note that one or both options are
 required to be enabled for the program to provide minimal functions.
 
 chrono options are:
-	-h, --help             Show this help message
-	-B, --beep             Play a sound when the countdown reaches zero
-	-C, --command COMMAND  Execute COMMAND when the countdown reaches zero
-	-c, --countdown FORMAT Count using one of these formats:
-                           15, 1:15, 1:30:45, 2:1:5:0, 4:2:0:0:0 (y\:m:d:h\:m:s)
-	-D, --debug            Show detailed informations
-	-r, --repeat           Repeat the countdown when it reaches zero
-	-s, --seconds          Display seconds instead of milliseconds
-	-t, --test             Perform debugging tests and exit
-	-T, --title TEXT       Set the window title with TEXT
-	-V, --version          Show program version and exit
+       -h, --help             Show this help message
+       -B, --beep             Play a sound when the countdown reaches zero
+       -C, --command COMMAND  Execute COMMAND when the countdown reaches zero
+       -c, --countdown FORMAT Count using one of these formats:
+                              15, 1:15, 1:30:45, 2:1:5:0, 4:2:0:0:0 (years:months:days:hours:minutes:seconds)
+       -D, --debug            Show detailed informations
+       -r, --repeat           Repeat the countdown when it reaches zero
+       -s, --seconds          Display seconds instead of milliseconds
+       -t, --test             Perform debugging tests and exit
+       -T, --title TEXT       Set the window title with TEXT
+       -V, --version          Show program version and exit
 
 If X11 support are enabled, these options become available:
-    -b, --borderless       Create window without decorations/border
-	-d, --display NAME     Open screen named NAME (ie ":0.0" or ":1.0")
-	-S, --sticky           Show window on all desktops
-	-x, --X11              Use the X11 GUI
-	-W, --width NUM        Set the window horizontal size
-	-H, --height NUM       Set the window vertical size
-	-X, --position-x NUM   Set the window horizontal position
-	-Y, --position-y NUM   Set the window vertical position
+       -b, --borderless       Create window without decorations/border
+       -d, --display NAME     Open screen named NAME (ie ":0.0" or ":1.0")
+       -S, --sticky           Show window on all desktops
+       -x, --X11              Use the X11 GUI
+       -W, --width NUM        Set the window horizontal size
+       -H, --height NUM       Set the window vertical size
+       -X, --position-x NUM   Set the window horizontal position
+       -Y, --position-y NUM   Set the window vertical position
 The -x option is not available if built without ncurses support
 
 Once chrono is started, you can press:
