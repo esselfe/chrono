@@ -27,7 +27,7 @@ chrono options are:
 	-B, --beep             Play a sound when the countdown reaches zero
 	-C, --command COMMAND  Execute COMMAND when the countdown reaches zero
 	-c, --countdown FORMAT Count using one of these formats:
-                           15, 1:15, 1:30:45, 2:1:5:0, 4:2:0:0:0 (y:m:d:h:m:s)
+                           15, 1:15, 1:30:45, 2:1:5:0, 4:2:0:0:0 (y\:m:d:h\:m:s)
 	-D, --debug            Show detailed informations
 	-r, --repeat           Repeat the countdown when it reaches zero
 	-s, --seconds          Display seconds instead of milliseconds
