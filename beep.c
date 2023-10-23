@@ -12,22 +12,22 @@ char beep_buffer[BEEP_BUFFER_SIZE];
 
 void BeepMakeBuffer(unsigned int freq) {
 	unsigned int wavelen = 44100 / freq;
-	int cnt, x, i;
+	int cnt, x, i, j;
 	for (cnt = 0, x = 127; cnt < BEEP_BUFFER_SIZE; cnt += wavelen) {
 		if (cnt >= BEEP_BUFFER_SIZE) break;
 		// wave up
-		for (i = 128; i <= 255; i++) {
-			beep_buffer[cnt] = x;
+		for (j = 0, i = 128; i <= 255; i++, j++) {
+			beep_buffer[cnt+j] = x;
 			x += 2;
 		}
 		// wave down
-		for (i = 255; i >= 0; i--) {
-			beep_buffer[cnt] = x;
+		for (i = 255; i >= 0; i--, j++) {
+			beep_buffer[cnt+j] = x;
 			x -= 2;
 		}
 		// wave up
-		for (i = 0; i <= 127; i++) {
-			beep_buffer[cnt] = x;
+		for (i = 0; i <= 127; i++, j++) {
+			beep_buffer[cnt+j] = x;
 			x += 2;
 		}
 	}
