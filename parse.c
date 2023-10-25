@@ -70,21 +70,26 @@ void ParseArgs(int *argc, char **argv) {
 			break;
 #endif
 		case 'C':
-			countdown_command = strdup(optarg);
+			if (optarg != NULL)
+				countdown_command = strdup(optarg);
 			break;
 		case 'c':
-			countdown = 1;
-			tv_countdown.tv_sec = (long)ParseTimeToSeconds(optarg);
-			if (tv_countdown.tv_sec <= 0)
-				tv_countdown.tv_sec = 1;
+			if (optarg != NULL) {
+				countdown = 1;
+				tv_countdown.tv_sec = (long)ParseTimeToSeconds(optarg);
+				if (tv_countdown.tv_sec <= 0)
+					tv_countdown.tv_sec = 1;
+			}
 			break;
 		case 'D':
 			debug = 1;
 			break;
 #ifdef HAVE_X11
 		case 'd':
-			display_name = (char *)malloc(strlen(optarg)+1);
-			sprintf(display_name, "%s", optarg);
+			if (optarg != NULL) {
+				display_name = (char *)malloc(strlen(optarg)+1);
+				sprintf(display_name, "%s", optarg);
+			}
 			break;
 #endif
 		case 'r':
@@ -94,8 +99,10 @@ void ParseArgs(int *argc, char **argv) {
 			seconds_only = 1;
 			break;
 		case 'T':
-			window_title = (char *)malloc(strlen(optarg)+1);
-			sprintf(window_title, "%s", optarg);
+			if (optarg != NULL) {
+				window_title = (char *)malloc(strlen(optarg)+1);
+				sprintf(window_title, "%s", optarg);
+			}
 			break;
 		case 't':
 			test = 1;
@@ -114,16 +121,20 @@ void ParseArgs(int *argc, char **argv) {
 			sticky = 1;
 			break;
 		case 'W':
-			winW = atoi(optarg);
+			if (optarg != NULL)
+				winW = atoi(optarg);
 			break;
 		case 'H':
-			winH = atoi(optarg);
+			if (optarg != NULL)
+				winH = atoi(optarg);
 			break;
 		case 'X':
-			winX = atoi(optarg);
+			if (optarg != NULL)
+				winX = atoi(optarg);
 			break;
 		case 'Y':
-			winY = atoi(optarg);
+			if (optarg != NULL)
+				winY = atoi(optarg);
 			break;
 #endif
 		default:
