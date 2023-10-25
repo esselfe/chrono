@@ -24,6 +24,7 @@ void ncursesInit(void) {
 		char *cmdstr = (char *)malloc(1024);
 		sprintf(cmdstr, "echo -en \"\033]0;%s\007\"", window_title);
 		system(cmdstr);
+		free(cmdstr);
 	}
 }
 
