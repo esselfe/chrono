@@ -41,7 +41,7 @@ void BeepPlay(unsigned int freq, unsigned int length) {
 }
 
 void BeepCallbackFunc(void *userdata, Uint8 *stream, int len) {
-	snprintf((char *)stream, len, beep_buffer);
+	snprintf((char *)stream, len, "%s", beep_buffer);
 }
 
 void *BeepThreadFunc(void *argp) {
