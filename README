@@ -1,9 +1,9 @@
-190618
-chrono is a terminal ncurses-based and/or X11-based windowed chronometer with
-millisecond precision, seconds, minutes, hours, days, months & years, 
-repeatable countdown, pause and reset function. It is written in the C
-programming language and can be compiled by running:
-'./configure && make' from the source directory.
+231112
+chrono is a terminal ncurses-based and/or X11-based windowed chronometer with  
+(optional) millisecond precision, seconds, minutes, hours, days, months & years, 
+repeatable countdown, pause and reset function. It is written in the C  
+programming language and can be compiled by running:  
+'./configure && make' from the source directory.  
 
 Note that you will need the ncurses development headers,
 ie: /usr/include/ncursesw/ncurses.h. You can run
@@ -22,9 +22,11 @@ You can add these options to the configure script:
 The default is to enable both if preset. Note that one or both options are
 required to be enabled for the program to provide minimal functions.
 
+The other important option is --disable-sdl to disable the beep sound option
+using the SDL2 library.
+
 chrono options are:
        -h, --help             Show this help message
-       -B, --beep             Play a sound when the countdown reaches zero
        -C, --command COMMAND  Execute COMMAND when the countdown reaches zero
        -c, --countdown FORMAT Count using one of these formats:
                               15, 1:15, 1:30:45, 2:1:5:0, 4:2:0:0:0 (years:months:days:hours:minutes:seconds)
@@ -35,7 +37,7 @@ chrono options are:
        -T, --title TEXT       Set the window title with TEXT
        -V, --version          Show program version and exit
 
-If X11 support are enabled, these options become available:
+If X11 support is enabled, these options become available:
        -b, --borderless       Create window without decorations/border
        -d, --display NAME     Open screen named NAME (ie ":0.0" or ":1.0")
        -S, --sticky           Show window on all desktops
@@ -46,13 +48,16 @@ If X11 support are enabled, these options become available:
        -Y, --position-y NUM   Set the window vertical position
 The -x option is not available if built without ncurses support
 
-Once chrono is started, you can press:
-'p' or <Space> pause and unpause,
-'q' or <Escape> quit
-'r' reset the counter
-'s' toggle seconds only
+If SDL2 support is enabled, this option becomes available:
+       -B, --beep             Play a sound when the countdown reaches zero
 
-The program can be paused and reset using:
+Once chrono is started, you can press:
+'p' or <Space> to pause and unpause,
+'q' or <Escape> to quit
+'r' to reset the counter
+'s' to toggle milliseconds visibility
+
+The program can be paused and reset programmatically using (from a shell):
 killall -SIGUSR1 chrono
 killall -SIGUSR2 chrono
 
