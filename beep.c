@@ -57,6 +57,8 @@ void *BeepThreadFunc(void *argp) {
 		else
 			usleep(100000);
 	}
+	
+	return NULL;
 }
 
 void BeepInit(void) {
