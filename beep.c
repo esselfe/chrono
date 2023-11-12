@@ -66,7 +66,8 @@ void BeepInit(void) {
 
 	SDL_Init(SDL_INIT_AUDIO);
 
-	SDL_AudioSpec desired, obtained;
+	SDL_AudioSpec desired;
+	SDL_AudioSpec obtained;
 	desired.freq = 44100;
 	desired.format = AUDIO_U8;
 	desired.channels = 1;
