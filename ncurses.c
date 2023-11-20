@@ -74,14 +74,14 @@ void ncursesTimeStringUpdate(void) {
 			printw(" %dd", days);
 
 	if (seconds_only)
-		printw(" %02ld:%02ld:%02ld							\r",
+		printw(" %02ld:%02ld:%02ld\t\t\r",
 			tm0->tm_hour, tm0->tm_min, tm0->tm_sec);
 	else {
 		if (countdown)
-			printw(" %02ld:%02ld:%02ld.%03lu					  \r",
+			printw(" %02ld:%02ld:%02ld.%03lu\t\t\r",
 				tm0->tm_hour, tm0->tm_min, tm0->tm_sec, tv_countdown.tv_usec/1000);
 		else
-			printw(" %02ld:%02ld:%02ld.%03lu					  \r",
+			printw(" %02ld:%02ld:%02ld.%03lu\t\t\r",
 				tm0->tm_hour, tm0->tm_min, tm0->tm_sec, tv_current.tv_usec/1000);
 	}
 	refresh();
