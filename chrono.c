@@ -15,9 +15,6 @@ years, repeateable countdown, pause and reset function
 #include <assert.h>
 #include "chrono.h"
 
-// The version is set in configure.ac
-const char *chrono_version_string = VERSION;
-
 #ifdef HAVE_NCURSES
 #include <ncurses.h>
 #endif
@@ -30,6 +27,8 @@ const char *chrono_version_string = VERSION;
 #include <SDL2/SDL.h>
 #endif
 
+// The version is set in configure.ac
+const char *chrono_version_string = VERSION;
 char *window_title;
 unsigned int use_x11, beep_enabled, beep_trigger;
 unsigned int debug, endmainloop, paused, seconds_only;
