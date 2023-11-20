@@ -1,4 +1,4 @@
-/* 190618
+/* June 2019
 chrono is a Linux terminal/ncurses and/or X11 based chronometer with
 optional millisecond precision, seconds, minutes, hours, days, months,
 years, repeateable countdown, pause and reset function
@@ -30,14 +30,30 @@ years, repeateable countdown, pause and reset function
 // The version is set in configure.ac
 const char *chrono_version_string = VERSION;
 char *window_title;
-unsigned int use_x11, beep_enabled, beep_trigger;
-unsigned int debug, endmainloop, paused, seconds_only;
-unsigned int days, months, years;
-unsigned int countdown_repeat, countdown;
+unsigned int use_x11;
+unsigned int beep_enabled;
+unsigned int beep_trigger;
+unsigned int debug;
+unsigned int endmainloop;
+unsigned int paused;
+unsigned int seconds_only;
+unsigned int days;
+unsigned int months;
+unsigned int years;
+unsigned int countdown_repeat;
+unsigned int countdown;
 char *countdown_command;
-struct timeval tv_initial, tv0, tv_countdown, tv_countdown_restore,
-	tv_start, tv_current, tv_diff, tv_prev,
-	tv_paused, tv_paused_current, tv_paused_start;
+struct timeval tv_initial;
+struct timeval tv0;
+struct timeval tv_countdown;
+struct timeval tv_countdown_restore;
+struct timeval tv_start;
+struct timeval tv_current;
+struct timeval tv_diff;
+struct timeval tv_prev;
+struct timeval tv_paused;
+struct timeval tv_paused_current;
+struct timeval tv_paused_start;
 struct tm *tm0;
 
 void ShowHelp(void) {
@@ -194,7 +210,8 @@ int main(int argc, char **argv) {
 	ncursesInit();
 #endif
 	
-	struct timeval tv_loop_start, tv_loop_end;
+	struct timeval tv_loop_start;
+	struct timeval tv_loop_end;
 	gettimeofday(&tv_start, NULL);
 	while (!endmainloop) {
 		gettimeofday(&tv_loop_start, NULL);

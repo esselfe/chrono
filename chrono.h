@@ -8,14 +8,31 @@
 
 extern const char *chrono_version_string;
 extern char *window_title;
-extern unsigned int use_x11, beep_enabled, beep_trigger;
-extern unsigned int test, debug, endmainloop, paused, seconds_only;
-extern unsigned int days, months, years;
-extern unsigned int countdown_repeat, countdown;
+extern unsigned int use_x11;
+extern unsigned int beep_enabled;
+extern unsigned int beep_trigger;
+extern unsigned int test;
+extern unsigned int debug;
+extern unsigned int endmainloop;
+extern unsigned int paused;
+extern unsigned int seconds_only;
+extern unsigned int days;
+extern unsigned int months;
+extern unsigned int years;
+extern unsigned int countdown_repeat;
+extern unsigned int countdown;
 extern char *countdown_command;
-extern struct timeval tv_initial, tv0, tv_countdown, tv_countdown_restore,
-    tv_start, tv_current, tv_diff, tv_prev,
-    tv_paused, tv_paused_current, tv_paused_start;
+extern struct timeval tv_initial;
+extern struct timeval tv0;
+extern struct timeval tv_countdown;
+extern struct timeval tv_countdown_restore;
+extern struct timeval tv_start;
+extern struct timeval tv_current;
+extern struct timeval tv_diff;
+extern struct timeval tv_prev;
+extern struct timeval tv_paused;
+extern struct timeval tv_paused_current;
+extern struct timeval tv_paused_start;
 extern struct tm *tm0;
 
 /* from chrono.c */
@@ -43,12 +60,17 @@ void Test(void);
 
 extern Display *display;
 extern char *display_name;
-extern int winX, winY, winW, winH;
-extern Window root_window, window;
+extern int winX;
+extern int winY;
+extern int winW;
+extern int winH;
+extern Window root_window;
+extern Window window;
 extern GC gc;
 extern int text_item_size;
 extern XTextItem text_item;
-extern unsigned int borderless, sticky; // bools
+extern unsigned int borderless; // bool
+extern unsigned int sticky;     // bool
 #define _NET_WM_STATE_REMOVE        0	// remove/unset property
 #define _NET_WM_STATE_ADD           1	// add/set property
 #define _NET_WM_STATE_TOGGLE        2	// toggle property

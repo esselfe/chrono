@@ -12,7 +12,10 @@ char beep_buffer[BEEP_BUFFER_SIZE];
 
 void BeepMakeBuffer(unsigned int freq) {
 	unsigned int wavelen = 44100 / freq;
-	int cnt, x, i, j;
+	int cnt;
+	int x;
+	int i;
+	int j;
 	for (cnt = 0, x = 127; cnt < BEEP_BUFFER_SIZE; cnt += wavelen) {
 		if (cnt >= BEEP_BUFFER_SIZE) break;
 		// wave up

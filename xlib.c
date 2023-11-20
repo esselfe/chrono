@@ -11,12 +11,17 @@
 
 Display *display;
 char *display_name;
-int winX = 200, winY = 200, winW = 180, winH = 20;
-Window root_window, window;
+int winX = 200;
+int winY = 200;
+int winW = 180;
+int winH = 20;
+Window root_window;
+Window window;
 GC gc;
 int text_item_size;
 XTextItem text_item;
-unsigned int borderless, sticky;
+unsigned int borderless;
+unsigned int sticky;
 
 void xlibInit(void) {
 	if (use_x11) {
@@ -200,7 +205,8 @@ void xlibWindowInit(void) {
 	wmhint.flags = StateHint;
 	XSetWMHints(display, window, &wmhint);
 
-	XTextProperty wname, iname;
+	XTextProperty wname;
+	XTextProperty iname;
 	if (!window_title) {
 		window_title = (char *)malloc(strlen(PACKAGE_STRING)+1);
 		sprintf(window_title, "%s", PACKAGE_STRING);

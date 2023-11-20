@@ -146,10 +146,19 @@ void ParseArgs(int *argc, char **argv) {
 
 // timestr should be like "01:45:30" or "2:15" or "10"
 long ParseTimeToSeconds(char *timestr) {
-	unsigned int cnt = strlen(timestr)-1, seconds_total, hours, minutes, seconds,
-		doing_seconds = 1, doing_minutes = 0, doing_hours = 0, doing_days = 0,
-		doing_months = 0, doing_years = 0;
-	char *c = timestr, buffer[32];
+	unsigned int cnt = strlen(timestr)-1;
+	unsigned int seconds_total;
+	unsigned int hours;
+	unsigned int minutes;
+	unsigned int seconds;
+	unsigned int doing_seconds = 1;
+	unsigned int doing_minutes = 0;
+	unsigned int doing_hours = 0;
+	unsigned int doing_days = 0;
+	unsigned int doing_months = 0;
+	unsigned int doing_years = 0;
+	char *c = timestr;
+	char buffer[32];
 	if (debug)
 		printf("\"%s\"\n", timestr);
 	while (1) {
@@ -276,7 +285,7 @@ long ParseTimeToSeconds(char *timestr) {
 				printf(" (%um) [%ut]", months, seconds_total);
 		}
 		else if (doing_years) {
-			years = atoi(buffer);
+			years = (unsigned int)atoi(buffer);
 			time_t t0 = time(NULL);
 			tm0 = gmtime(&t0);
 			if (tm0->tm_year % 4 == 0)
